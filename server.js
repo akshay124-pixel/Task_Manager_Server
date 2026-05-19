@@ -8,8 +8,12 @@ connectDB();
 
 const app = express();
 
+const corsOrigin = process.env.ORIGIN
+  ? process.env.ORIGIN.split(',').map((item) => item.trim())
+  : '*';
+
 // Middleware
-app.use(cors());
+app.use(cors({ origin: corsOrigin, credentials: true }));
 app.use(express.json());
 
 // Basic Route
