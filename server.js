@@ -8,9 +8,7 @@ connectDB();
 
 const app = express();
 
-const corsOrigin = process.env.ORIGIN
-  ? process.env.ORIGIN.split(',').map((item) => item.trim())
-  : '*';
+const corsOrigin = process.env.ORIGIN || '*';
 
 // Middleware
 app.use(cors({ origin: corsOrigin, credentials: true }));
